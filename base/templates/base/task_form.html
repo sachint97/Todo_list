@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+{% block content_form %}
+<h3 class="mb-3">Add Task</h3>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class='btn btn-primary' type="submit" value="Submit">
+    <a class='btn btn-secondary' href="{% url 'tasklist' %}">Go Back</a>
+</form>
+{% endblock content_form %}
+

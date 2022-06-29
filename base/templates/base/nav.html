@@ -1,0 +1,32 @@
+<nav class='navbar navbar-expand-md navbar-dark bg-secondary'>
+    <a class='navbar-brand ps-3 ' href="{% url 'tasklist'%}">ToDo List</a>
+    {% if request.user.is_authenticated %}
+        <form class="d-flex mx-auto me-2" role="search" method="get" style="width:65%">
+            <input class="form-control ms-2 me-2 " type="search" placeholder="Search" aria-label="Search" value="{{search_input}}" name="search-item">
+            <button class="btn btn-light" type="submit">Search</button>
+        </form>
+    {% endif %}
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class='collapse navbar-collapse' id='navbarTogglerDemo01'>
+        <ul class= 'navbar-nav ms-auto'>
+            {% if request.user.is_authenticated %}
+                <li class='nav-item'>
+                    <a class='nav-link me-2'>Welcome {{request.user}}</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link me-2' href="{% url 'taskcreate' %}">Add Task</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link me-2' href="{% url 'logout' %}">LogOut</a>
+                </li>
+            {% else %}
+                <li class='nav-item'>
+                    <a class='nav-link me-2' href="{% url 'login' %}">LogIn</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

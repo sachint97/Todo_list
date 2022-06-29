@@ -1,0 +1,13 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="card text-bg-light mb-3 mx-auto text-center" style="width:50% ;">
+  <div class="card-header">Task</div>
+  <div class="card-body">
+    <h5 class="card-title">{{task}}</h5>
+    <p class="card-text">{{task.description}}</p>
+    <a class="card-link" href="{% url 'taskupdate' task.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+    <a class="card-link" href="{% url 'taskdelete' task.id %}"><i class="fa-solid fa-trash"></i></a>
+  </div>
+</div>
+{% endblock content %}
+

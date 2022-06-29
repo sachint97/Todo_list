@@ -1,0 +1,10 @@
+{% extends 'base/main.html' %}
+{% block content_form %}
+<h1 class="mb-3">SignUp</h1>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input class="btn btn-primary" type="submit" value="SignUp">
+  <p>Already have an account <a href="{% url 'login' %}">Login</a></p>
+</form>
+{% endblock content_form %}

@@ -1,0 +1,26 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+    <table class="table table-light table-hover ">
+        <thead class="table-dark">
+            <td>Tasks</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </thead>
+        <tbody>
+            {% if tasks %}
+            {% for task in tasks %}
+            <tr>
+                <td><a href="{% url 'taskdetail' task.id %}">{{task.title}}</a></td>
+                <td><a href="{% url 'taskupdate' task.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                <td><a href="{% url 'taskdelete' task.id %}"><i class="fa-solid fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr><td>No Items</td></tr>
+        {% endif %}
+        </tbody>
+
+    </table>
+{% endblock content%}
+

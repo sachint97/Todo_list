@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="card text-bg-light mb-3 mx-auto text-center" style="width:50% ;">
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="card-header">Are you sure you want to delete "{{delete_item}}" task?</div>
+        <div class="card-body">
+            <input class='btn btn-primary' type="submit" value="Delete">
+            <a class='btn btn-secondary' href="{% url 'tasklist' %}">Go Back</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
